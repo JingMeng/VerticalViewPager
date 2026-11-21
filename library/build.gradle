@@ -1,23 +1,24 @@
-apply plugin: 'android-library'
+apply plugin: 'com.android.library'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:19.0.0'
+    implementation 'androidx.core:core:1.12.0'
+    implementation 'androidx.viewpager:viewpager:1.0.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 }
 
 android {
-    compileSdkVersion 19
-    buildToolsVersion "19.0.0"
+    namespace 'fr.castorflex.android.verticalviewpager'
+    compileSdk 34
 
     defaultConfig {
-        minSdkVersion 4
-        targetSdkVersion 19
+        minSdk 14
+        targetSdk 34
         versionName project.VERSION_NAME
         versionCode Integer.parseInt(project.VERSION_CODE)
     }
 }
 
-apply from: '../mvn_push.gradle'

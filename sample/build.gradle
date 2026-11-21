@@ -1,21 +1,17 @@
-apply plugin: 'android'
-
-repositories {
-    mavenCentral()
-}
+apply plugin: 'com.android.application'
 
 dependencies {
-    compile project(':library')
-    compile 'com.android.support:support-v13:19.0.0'
+    implementation project(':library')
+    implementation 'androidx.legacy:legacy-support-v13:1.0.0'
 }
 
 android {
-    compileSdkVersion 19
-    buildToolsVersion "19.0.0"
+    namespace 'fr.castorflex.android.verticalviewpager.sample'
+    compileSdk 34
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 19
+        minSdk 14
+        targetSdk 34
         versionName project.VERSION_NAME
         versionCode Integer.parseInt(project.VERSION_CODE)
     }
@@ -27,6 +23,7 @@ android {
         release {
             signingConfig project.hasProperty('storeFile') ? signingConfigs.release : signingConfigs.debug
         }
+    
     }
 }
 if (project.hasProperty('storeFile')) {
@@ -41,3 +38,5 @@ if (project.hasProperty('storePassword')) {
 if (project.hasProperty('keyPassword')) {
     android.signingConfigs.release.keyPassword = keyPassword
 }
+
+

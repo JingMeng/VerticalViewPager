@@ -1,12 +1,12 @@
 package fr.castorflex.android.verticalviewpager.sample;
 
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.v13.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +16,7 @@ import java.util.Locale;
 
 import fr.castorflex.android.verticalviewpager.VerticalViewPager;
 
-public class MainActivity extends Activity {
+public class MainActivity extends FragmentActivity {
 
     private static final float MIN_SCALE = 0.75f;
     private static final float MIN_ALPHA = 0.75f;
@@ -27,7 +27,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         VerticalViewPager verticalViewPager = (VerticalViewPager) findViewById(R.id.verticalviewpager);
 
-        verticalViewPager.setAdapter(new DummyAdapter(getFragmentManager()));
+        verticalViewPager.setAdapter(new DummyAdapter(getSupportFragmentManager()));
         verticalViewPager.setPageMargin(getResources().getDimensionPixelSize(R.dimen.pagemargin));
         verticalViewPager.setPageMarginDrawable(new ColorDrawable(getResources().getColor(android.R.color.holo_green_dark)));
 
@@ -142,3 +142,4 @@ public class MainActivity extends Activity {
     }
 
 }
+
